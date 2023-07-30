@@ -1,16 +1,16 @@
 /**
-	========================================
-	Challenge:
-	========================================
-	Write a function that accepts a String as an argument
-		1. The function should capitalize ONLY every other character in the String
-		2. The function should then return the converted String
+========================================
+Challenge:
+========================================
+Write a function that accepts a String as an argument
+	1. The function should capitalize ONLY every other character in the String
+	2. The function should then return the converted String
 
-	Example/edge cases (example => expected result):
-		1. "hello"    => "HeLlO"
-		2. "yo joe"   => "Yo jOe"
-		3. "hello???" => "HeLlO???"
-		4. "HELLO"    => "HeLlO"
+Example/edge cases (example => expected result):
+	1. "hello"    => "HeLlO"
+	2. "yo joe"   => "Yo jOe"
+	3. "hello???" => "HeLlO???"
+	4. "HELLO"    => "HeLlO"
 **/
 
 const capitalizeEven = (string) => {
@@ -39,9 +39,9 @@ const capitalizeEven = (string) => {
 
 
 /**
-	========================================
-	Now, let's optimize it further!
-	========================================
+========================================
+Now, let's optimize it further!
+========================================
 	1. We use split('') to convert the input string into an array of characters, making it easier to 
 	   use array methods.
 	2. We use map to iterate over the array of characters and apply the uppercase/lowercase 
