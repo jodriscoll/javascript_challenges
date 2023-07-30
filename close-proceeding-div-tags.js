@@ -1,19 +1,19 @@
 /**
-	========================================
-	Challenge:
-	========================================
-    Write a function that accepts a String as an argument
-        1. The String is supposed to be HTML, but all the <div> elements are missing their 
-           closing tags (they have the < and >)
-        2. The function's job is to find and close all the div's in the provided HTML string
-        3. The function should return the entire corrected string
+========================================
+Challenge:
+========================================
+Write a function that accepts a String as an argument
+	1. The String is supposed to be HTML, but all the <div> elements are missing their 
+	   closing tags (they have the < and >)
+	2. The function's job is to find and close all the div's in the provided HTML string
+	3. The function should return the entire corrected string
 
-   Example/edge cases:
-        1. "<div><p>Here is an example</p><div>"
-        2. "<div><p>Here is another <div> example</p>"
-        3. "<div><p>Here is another <div> example</p><div><div>"
-        4. "<div><div><div>"
-        5. "<div></div><p>Hello World</p><div></div>"
+Example/edge cases:
+	1. "<div><p>Here is an example</p><div>"
+	2. "<div><p>Here is another <div> example</p>"
+	3. "<div><p>Here is another <div> example</p><div><div>"
+	4. "<div><div><div>"
+	5. "<div></div><p>Hello World</p><div></div>"
 **/
 
 const closingDivs = (string) => {
@@ -51,10 +51,10 @@ const closingDivs = (string) => {
 
 
 /**
-    ========================================
-    Now, let's optimize it further!
-    ========================================
-    We're going to minimize our loops and write a few conditions to rewrite our string instead.
+========================================
+Now, let's optimize it further!
+========================================
+We're going to minimize our loops and write a few conditions to rewrite our string instead.
 **/
 const closeDivs = (string) => {
     let divCounter = 0;
