@@ -10,7 +10,7 @@
         <section id="container">
             <h1>Check the browser console for results.</h1>
             <ul class="list-items">
-                <li id="target-li" class="list-item">Find me :)</li>
+                <li id="target-li" class="list-item">Find me!</li>
             </ul>
         </section>
     </main>
@@ -41,19 +41,20 @@
             - never found => return null
         **/
         Document.prototype.customGetElementById = function(id) {
-            // Loop through the children recursively till we find the ID
+            // Loop through the available children
             for (const element of this.children) {
-                // If there are children, continue
+                // If the element has an ID, return the element
                 if (element.id === id) return element;
-                // Otherwise, continue recursively looking for the ID
+                // Otherwise, continue recursively keep looking for IDs
                 const found = Document.prototype.customGetElementById.call(element, id);
-                // if found, return the found element
+                // If/when found, return that element
                 if (found) return found;
             }
-            // If none found, return null
+            // If never found, return null
             return null;
         }
-        console.log(document.customGetElementById("target-li"));
+        console.log('Default:', document.getElementById("target-li"));
+        console.log('Custom:', document.customGetElementById("target-li"));
     </script>
 </body>
 </html>
