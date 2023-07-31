@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recreate getElementsById() using Document.prototype</title>
+</head>
+<body>
+    <main id="target-main" class="main">
+        <section id="container">
+            <h1>Check the browser console for results.</h1>
+            <ul class="list-items">
+                <li id="target-li" class="list-item">Find me :)</li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        /**
+        ========================================
+        Challenge:
+        ========================================
+        Recreate the getElementsById() function using a prototype.
+
+        Help:
+        - Pass in the ID as a string
+        - Return the first element matchin, otherwise return null
+        - "this" should be equal to the "document" object (console.dir(document))
+        - Go through the #document and check each node
+            - this === document start
+        - If we don't find the target ID, call the next child element
+        - Assume only HTML elements
+        - Recursion is needed
+        - Not keep using "Document", instead create a reference
+
+        Based case:
+        - Check if child element not null
+        - If no children, return out of that tree
+        - If children, check for ID property
+            - found? => return the Element
+            - not found? => recurse with next child
+            - never found => return null
+        **/
+        Document.prototype.customGetElementById = function(id) {
+            // Loop through the children recursively till we find the ID
+            for (const element of this.children) {
+                // If there are children, continue
+                if (element.id === id) return element;
+                // Otherwise, continue recursively looking for the ID
+                const found = Document.prototype.customGetElementById.call(element, id);
+                // if found, return the found element
+                if (found) return found;
+            }
+            // If none found, return null
+            return null;
+        }
+        console.log(document.customGetElementById("target-li"));
+    </script>
+</body>
+</html>
